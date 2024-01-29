@@ -1,0 +1,89 @@
+@mixin reset {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+@mixin flex {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+$clock-element-color: #f4e3b0;
+$clock-body-color: #1f1f1f;
+$clock-bg-color: #565656;
+$counter: 0;
+
+* {
+    @include reset;
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        @include flex;
+        background-color: $clock-bg-color;
+
+        .circle {
+            border-radius: 50%;
+            position: relative;
+            background-color: $clock-body-color;
+            width: clamp(300px,40vw,100rem);
+            aspect-ratio: 1/1;
+            box-shadow: 0px 0px 0px 15px #434343,
+                        inset 0px 0px 0px 10px black;
+
+            .time-block {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: $clock-element-color;
+                width: 1.25%;
+                height: 93.75%;
+            }
+            .minute,
+            .hour,
+            .second,
+            .dot {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transform-origin: bottom;
+                background-color: $clock-element-color;
+                z-index: 2;
+            }
+
+            .dot {
+                width: clamp(22.5px,3vw,100rem);
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+            }
+
+            .hour {
+                width: clamp(11.25px,1.5vw,10rem);
+                aspect-ratio: 1/6;
+                transform: translate(-50%, -100%);
+            }
+
+            .second {
+                width: clamp(6.75px,0.75vw,10rem);
+                aspect-ratio: 1/20;
+                transform: translate(-50%, -100%);
+            }
+
+            .minute {
+                width: clamp(7.5px,1vw,10rem);
+                aspect-ratio: 1/13.5;
+                transform: translate(-50%, -100%);
+            }
+        }
+        .cover{
+            @extend .circle;
+            position: absolute;
+            width: clamp(262.5px,35vw,100rem);
+            box-shadow: none;
+        }
+    }
+}

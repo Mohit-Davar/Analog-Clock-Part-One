@@ -1,0 +1,70 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+* .container {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #565656;
+}
+* .container .circle, * .container .cover {
+  border-radius: 50%;
+  position: relative;
+  background-color: #1f1f1f;
+  width: clamp(300px, 40vw, 100rem);
+  aspect-ratio: 1/1;
+  box-shadow: 0px 0px 0px 15px #434343, inset 0px 0px 0px 10px black;
+}
+* .container .circle .time-block, * .container .cover .time-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f4e3b0;
+  width: 1.25%;
+  height: 93.75%;
+}
+* .container .circle .minute, * .container .cover .minute,
+* .container .circle .hour,
+* .container .cover .hour,
+* .container .circle .second,
+* .container .cover .second,
+* .container .circle .dot,
+* .container .cover .dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: bottom;
+  background-color: #f4e3b0;
+  z-index: 2;
+}
+* .container .circle .dot, * .container .cover .dot {
+  width: clamp(22.5px, 3vw, 100rem);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+* .container .circle .hour, * .container .cover .hour {
+  width: clamp(11.25px, 1.5vw, 10rem);
+  aspect-ratio: 1/6;
+  transform: translate(-50%, -100%);
+}
+* .container .circle .second, * .container .cover .second {
+  width: clamp(6.75px, 0.75vw, 10rem);
+  aspect-ratio: 1/20;
+  transform: translate(-50%, -100%);
+}
+* .container .circle .minute, * .container .cover .minute {
+  width: clamp(7.5px, 1vw, 10rem);
+  aspect-ratio: 1/13.5;
+  transform: translate(-50%, -100%);
+}
+* .container .cover {
+  position: absolute;
+  width: clamp(262.5px, 35vw, 100rem);
+  box-shadow: none;
+}/*# sourceMappingURL=style.css.map */
